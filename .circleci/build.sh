@@ -40,6 +40,12 @@ echo "==> Install other dev dependencies"
 cat <<< "$(jq --indent 4 '.extra["phpcodesniffer-search-depth"] = 10' build/composer.json)" > build/composer.json
 php -d memory_limit=-1 "$(command -v composer)" --working-dir=build require --dev dealerdirect/phpcodesniffer-composer-installer
 
+echo "==> Installing node modules"
+npm --prefix build/web/modules/"${MODULE}"/ install
+
+echo "==> Building library assets"
+npm --prefix build/web/modules/"${MODULE}"/ run build
+
 echo "==> Start inbuilt PHP server in $(pwd)/build/web"
 killall -9 php > /dev/null 2>&1  || true
 nohup php -S localhost:8000 -t "$(pwd)/build/web" "$(pwd)/build/web/.ht.router.php" > /tmp/php.log 2>&1 &
