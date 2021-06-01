@@ -1,0 +1,6 @@
+name: Prototype Select
+type: module
+description: Accessible enhancements to select HTML elements
+package: Prototype
+core: 8.x
+core_version_requirement: ^8 || ^9
