@@ -3,7 +3,7 @@ version: 2
 aliases:
   # SSH deployment key fingerprint from CircleCI App -> Project -> Settings -> SSH Permissions.
   # Replace the value for your project.
-  # - &deploy_ssh_fingerprint ""
+  - &deploy_ssh_fingerprint "56:92:77:fb:c7:ac:e8:5e:51:48:ad:1d:23:d7:7d:d3"
   - &container_config
     working_directory: ~/project
     docker:
@@ -83,16 +83,21 @@ jobs:
   #     DRUPAL_PROJECT_SHA: 53f6910c35db73d0b367d5b6f22be4af94dd1af3
   #   <<: *job-build
 
-  # deploy:
-  #   <<: *container_config
-  #   environment:
-  #     DEPLOY_SSH_FINGERPRINT: *deploy_ssh_fingerprint
-  #   steps:
-  #     - checkout
-  #     - add_ssh_keys:
-  #         fingerprints:
-  #           - *deploy_ssh_fingerprint
-  #     - run: DEPLOY_BRANCH=${CIRCLE_BRANCH} .circleci/deploy.sh
+  deploy:
+    <<: *container_config
+    environment:
+      DEPLOY_SSH_FINGERPRINT: *deploy_ssh_fingerprint
+      DEPLOY_USER_NAME: pixelwhip
+      DEPLOY_USER_EMAIL: john@pixel-whip.com
+      DEPLOY_REMOTE: git@git.drupal.org:project/prototype_select.git
+      DEPLOY_PROCEED: 0
+
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - *deploy_ssh_fingerprint
+      - run: DEPLOY_BRANCH=${CIRCLE_BRANCH} .circleci/deploy.sh
 
 workflows:
   version: 2
