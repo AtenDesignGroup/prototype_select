@@ -7,7 +7,7 @@ aliases:
   - &container_config
     working_directory: ~/project
     docker:
-      - image: circleci/php:7.4-cli-browsers
+      - image: circleci/php:7.4-cli-node-browsers
 
 job-build: &job-build
   steps:
