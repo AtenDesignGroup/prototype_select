@@ -56,10 +56,10 @@ build/vendor/bin/drush -r build/web si "${DRUPAL_PROFILE:-standard}" -y --db-url
 build/vendor/bin/drush -r "$(pwd)/build/web" status
 
 echo "==> Installing node modules"
-npm --prefix build/web/modules/"${MODULE}"/ install
+npm install
 
 echo "==> Building library assets"
-npm --prefix build/web/modules/"${MODULE}"/ run build
+npm run build
 
 echo "==> Symlink module code"
 rm -rf build/web/modules/"${MODULE}"/* > /dev/null
