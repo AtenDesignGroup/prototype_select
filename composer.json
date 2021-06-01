@@ -2,7 +2,7 @@
     "name": "drupal/prototype_select",
     "description": "Implements Select A11y for accessible enhancements to select elements.",
     "type": "drupal-module",
-    "license": "GPL-2.0+",
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "John Ferris",
