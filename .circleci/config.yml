@@ -38,14 +38,14 @@ jobs:
   build-php-7.3:
     <<: *container_config
     docker:
-      - image: circleci/php:7.3-cli-browsers
+      - image: circleci/php:7.3-cli-node-browsers
     <<: *job-build
 
-  build-php-7.2:
-    <<: *container_config
-    docker:
-      - image: circleci/php:7.2-cli-browsers
-    <<: *job-build
+  # build-php-7.2:
+  #   <<: *container_config
+  #   docker:
+  #     - image: circleci/php:7.2-cli-node-browsers
+  #   <<: *job-build
 
   # @todo: Enable after Drupal core > 8.8.0 release, so that DRUPAL_VERSION
   # would become 8.8.0. This is due to a core version < 8.8 does not support
