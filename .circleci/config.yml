@@ -111,10 +111,10 @@ workflows:
           filters:
             tags:
               only: /.*/
-      - build-php-7.2:
-          filters:
-            tags:
-              only: /.*/
+      # - build-php-7.2:
+      #     filters:
+      #       tags:
+      #         only: /.*/
       # @todo: Enable after Drupal core version > 8.8.0 released.
       # - build-php-7.4-legacy:
       #     filters:
