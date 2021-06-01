@@ -90,7 +90,7 @@ jobs:
       DEPLOY_USER_NAME: pixelwhip
       DEPLOY_USER_EMAIL: john@pixel-whip.com
       DEPLOY_REMOTE: git@git.drupal.org:project/prototype_select.git
-      DEPLOY_PROCEED: 0
+      DEPLOY_PROCEED: 1
 
     steps:
       - checkout
