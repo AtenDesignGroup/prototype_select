@@ -20,7 +20,7 @@ export default [
   },
   {
     input: 'src/js/prototype-select.js',
-    externals: ['Drupal', 'jQuery'],
+    external: ['Drupal', 'jQuery'],
     output: [
       {
         file: 'dist/js/prototype-select.js',
