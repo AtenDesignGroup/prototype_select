@@ -55,12 +55,6 @@ echo "==> Install Drupal into SQLite database ${DB_FILE}"
 build/vendor/bin/drush -r build/web si "${DRUPAL_PROFILE:-standard}" -y --db-url "sqlite://${DB_FILE}" --account-name=admin install_configure_form.enable_update_status_module=NULL install_configure_form.enable_update_status_emails=NULL
 build/vendor/bin/drush -r "$(pwd)/build/web" status
 
-echo "==> Installing node modules"
-npm install
-
-echo "==> Building library assets"
-npm run build
-
 echo "==> Symlink module code"
 rm -rf build/web/modules/"${MODULE}"/* > /dev/null
 mkdir -p "build/web/modules/${MODULE}"
