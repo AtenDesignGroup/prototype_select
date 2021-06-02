@@ -59,4 +59,5 @@ git add --force dist && git commit --amend --no-edit
 
 echo "==> Deploying to remote ${DEPLOY_REMOTE}"
 # shellcheck disable=SC2086
-git push --force --tags deployremote ${DEPLOY_BRANCH}
+# git push --force --tags deployremote ${DEPLOY_BRANCH}
+git push --tags deployremote ${DEPLOY_BRANCH}
