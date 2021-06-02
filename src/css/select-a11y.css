@@ -11,7 +11,7 @@
   border-radius: var(--input-radius, .125em);
   color: var(--input-color-text, #333);
   display: flex;
-  padding: var(--input-space-y, .5em) var(--input-space-x, 1em);
+  padding: var(--input-space-y, .5em) 0 var(--input-space-y, .5em) var(--input-space-x, 1em);
   text-transform: inherit;
   font-family: var(--font-family-interface, 'sans-serif');
   text-align: left;
@@ -35,9 +35,6 @@
   background-position: 50%;
   height: var(--icon-size-y, 1em);
   width: var(--icon-size-x, 1em);
-  position: relative;
-  left: calc(var(--input-space-x, 1em) / 2);
-  vertical-align: baseline;
   margin-left: auto;
 }
 
