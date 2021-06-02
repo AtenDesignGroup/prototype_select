@@ -53,6 +53,10 @@ git config --global push.default matching
 echo "==> Adding remote ${DEPLOY_REMOTE}"
 git remote add deployremote "${DEPLOY_REMOTE}"
 
+echo "==> Ammending previous commit with dist directory"
+# shellcheck disable=SC2086
+git add --force dist && git commit --amend --no-edit
+
 echo "==> Deploying to remote ${DEPLOY_REMOTE}"
 # shellcheck disable=SC2086
 git push --force --tags deployremote ${DEPLOY_BRANCH}
