@@ -64,7 +64,7 @@ npm run build
 echo "==> Symlink module code"
 rm -rf build/web/modules/"${MODULE}"/* > /dev/null
 mkdir -p "build/web/modules/${MODULE}"
-ln -s "$(pwd)"/* build/web/modules/"${MODULE}" && rm build/web/modules/"${MODULE}"/build
+ln -s "$(pwd)"/* build/web/modules/"${MODULE}" && rm build/web/modules/"${MODULE}"/build && rm build/web/modules/"${MODULE}"/node_modules && rm build/web/modules/"${MODULE}"/.gitignore
 
 echo "==> Enable module ${MODULE}"
 build/vendor/bin/drush -r build/web pm:enable "${MODULE}" -y
